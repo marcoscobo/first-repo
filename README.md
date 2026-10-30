@@ -4,7 +4,7 @@ Online shop for mobile phones, built with Vue 3.
 
 Users can browse a phone catalog, filter it (brand, price, specs), open a product page, add phones to a cart and go through checkout. Data comes from a mock API for now; a real backend can be plugged in later without touching the UI.
 
-> **Status:** project base only (docs). The Vue app, `Dockerfile` and `docker-compose.yml` arrive in the next feature branch. The commands below work once they land.
+> **Status:** Docker and dev container setup in place. The Vue app arrives in the next feature branch; until then the dev server, tests, lint and builds have nothing to run.
 
 ## Stack
 
@@ -17,11 +17,26 @@ Users can browse a phone catalog, filter it (brand, price, specs), open a produc
 | Styling     | Tailwind CSS                  |
 | Tests       | Vitest + Vue Test Utils       |
 | Code style  | ESLint + Prettier             |
-| Environment | Docker + docker compose       |
+| Environment | Docker + docker compose, VS Code Dev Containers |
 
 ## Run it
 
 You only need Docker. No local Node install required.
+
+### Option A: VS Code Dev Container
+
+Requires the VS Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
+
+1. Open the repo in VS Code and run **Dev Containers: Reopen in Container**.
+2. In the container terminal (you are already inside the `web` container, run npm directly):
+
+```bash
+npm run dev -- --host
+```
+
+Port 5173 is forwarded: open http://localhost:5173. Use `npm test`, `npm run lint` and `npm run build` the same way.
+
+### Option B: docker compose
 
 ```bash
 docker compose up

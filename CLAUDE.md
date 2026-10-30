@@ -6,7 +6,7 @@ Guidance for Claude when working in this repository.
 
 Online shop for mobile phones. Single-page app in Vue 3 + TypeScript: phone catalog with filters, product detail, cart and checkout. Frontend only for now: data comes from mock fixtures behind a service layer, so a real REST API can replace them later without changing views or stores.
 
-Current status: docs only. The Vue scaffold, `Dockerfile` and `docker-compose.yml` described below are not created yet.
+Current status: `Dockerfile`, `docker-compose.yml` and `.devcontainer/` exist. The Vue scaffold described below is not created yet.
 
 ## Stack
 
@@ -16,7 +16,7 @@ Current status: docs only. The Vue scaffold, `Dockerfile` and `docker-compose.ym
 - Tailwind CSS
 - Vitest + Vue Test Utils
 - ESLint + Prettier
-- Docker + docker compose (all commands run inside containers)
+- Docker + docker compose (all commands run inside containers), VS Code Dev Containers
 
 ## Architecture
 
@@ -49,12 +49,13 @@ Tests: Vitest + Vue Test Utils, `*.spec.ts` colocated next to the file under tes
 ## Docker
 
 - `Dockerfile` (multi-stage):
-  - `dev`: Node LTS, runs the Vite dev server with `--host` on port 5173.
+  - `dev`: Node LTS (pinned tag), runs as user `node`, starts the Vite dev server with `--host` on port 5173.
   - `build`: runs `npm ci && npm run build` to produce `dist/`.
-  - `prod`: nginx serving `dist/` with SPA fallback (`try_files $uri /index.html`).
+  - `prod`: nginx (pinned tag) serving `dist/` with SPA fallback (`try_files $uri /index.html`, see `nginx.conf`).
 - `docker-compose.yml`: service `web` (target `dev`), port `5173:5173`, source bind-mounted for hot reload, named volume for `node_modules`.
+- `.devcontainer/`: VS Code attaches to the compose `web` service at `/app` as user `node`. Its `docker-compose.yml` override sets `command: sleep infinity`, so the dev server is started manually (`npm run dev -- --host`). `postCreateCommand` runs `npm ci` when `package-lock.json` exists.
 - Mock data lives in `src/mocks`; there is no separate mock API container.
-- Run every Node command through compose, not on the host.
+- Run every Node command through compose, not on the host. Inside the dev container you are already in the `web` container: run `npm ...` directly.
 
 ### Commands
 
