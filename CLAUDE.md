@@ -6,7 +6,7 @@ Guidance for Claude when working in this repository.
 
 Online shop for mobile phones. Single-page app in Vue 3 + TypeScript: phone catalog with filters, product detail, cart and checkout. Frontend only for now: data comes from mock fixtures behind a service layer, so a real REST API can replace them later without changing views or stores.
 
-Current status: `Dockerfile`, `docker-compose.yml` and `.devcontainer/` exist. The Vue scaffold described below is not created yet.
+Current status: first version. Implemented: `/` (redirects to `/phones`) and `/phones` (CatalogView with PhoneCard/PriceTag, `products` store, `productService`, `src/mocks/phones.json`). Not built yet: HomeView, PhoneDetailView, CartView, CheckoutView, filters, cart and order logic.
 
 ## Stack
 
