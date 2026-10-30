@@ -11,5 +11,7 @@ const formatted = computed(() => formatter.format(props.price))
 </script>
 
 <template>
-  <span class="text-lg font-semibold text-gray-900">{{ formatted }}</span>
+  <span class="whitespace-nowrap text-sm font-semibold tracking-tight text-[#344b3a]">{{
+    formatted
+  }}</span>
 </template>
