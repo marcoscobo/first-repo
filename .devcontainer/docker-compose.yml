@@ -1,0 +1,5 @@
+# Dev container override: keep the container alive so VS Code can attach
+# even when the dev server is not running (e.g. before package.json exists).
+services:
+  web:
+    command: sleep infinity
