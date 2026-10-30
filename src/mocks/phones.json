@@ -1,0 +1,74 @@
+[
+  {
+    "id": "nova-x1",
+    "brand": "Nova",
+    "model": "X1",
+    "price": 699,
+    "storageGb": 128,
+    "ramGb": 8,
+    "screenInches": 6.1
+  },
+  {
+    "id": "nova-x1-pro",
+    "brand": "Nova",
+    "model": "X1 Pro",
+    "price": 999,
+    "storageGb": 256,
+    "ramGb": 12,
+    "screenInches": 6.7
+  },
+  {
+    "id": "orbit-s",
+    "brand": "Orbit",
+    "model": "S",
+    "price": 349,
+    "storageGb": 64,
+    "ramGb": 4,
+    "screenInches": 6.0
+  },
+  {
+    "id": "orbit-s-plus",
+    "brand": "Orbit",
+    "model": "S Plus",
+    "price": 449,
+    "storageGb": 128,
+    "ramGb": 6,
+    "screenInches": 6.5
+  },
+  {
+    "id": "kestrel-7",
+    "brand": "Kestrel",
+    "model": "7",
+    "price": 579,
+    "storageGb": 128,
+    "ramGb": 8,
+    "screenInches": 6.3
+  },
+  {
+    "id": "kestrel-7-max",
+    "brand": "Kestrel",
+    "model": "7 Max",
+    "price": 829,
+    "storageGb": 256,
+    "ramGb": 12,
+    "screenInches": 6.9
+  },
+  {
+    "id": "lumen-mini",
+    "brand": "Lumen",
+    "model": "Mini",
+    "price": 299,
+    "storageGb": 64,
+    "ramGb": 4,
+    "screenInches": 5.4
+  },
+  {
+    "id": "lumen-one",
+    "brand": "Lumen",
+    "model": "One",
+    "price": 529,
+    "storageGb": 128,
+    "ramGb": 8,
+    "screenInches": 6.2
+  }
+]
