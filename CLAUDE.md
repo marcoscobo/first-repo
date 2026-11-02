@@ -105,3 +105,22 @@ refactor(services)!: return Result objects from productService
 ```
 
 Summary in English, lowercase, no trailing period, ≤ 72 characters.
+
+## Agent team
+
+Project subagents live in `.claude/agents/`. Delegate by concern with the Agent tool (`subagent_type` = the name below).
+
+| Agent | Use for | Scope |
+| --- | --- | --- |
+| `data-layer-dev` | types, services, mock fixtures, Pinia stores (cart, filters, orders logic) | `src/types`, `src/services`, `src/mocks`, `src/stores` |
+| `vue-feature-dev` | views, components, composables, router entries | `src/views`, `src/components`, `src/composables`, `src/router` |
+| `test-qa` | writing/running Vitest specs, lint, production build | `*.spec.ts`, verification commands |
+| `repo-reviewer` | read-only review of the branch diff against these rules, before commit/PR | no edits |
+
+Typical flow for a feature: `data-layer-dev` (models, service, store) -> `vue-feature-dev` (UI) -> `test-qa` (specs + lint + build) -> `repo-reviewer`.
+
+Rules:
+- Independent work (e.g. data layer and a UI against an agreed interface, or tests for separate files) may run in parallel; dependent steps run in order.
+- If an agent finds work outside its scope (e.g. UI needs a new store action), it reports back instead of crossing layers; the main session re-delegates.
+- The main session owns the Git workflow: branching, commits, push, PRs. Agents never commit or push.
+- Non-trivial features: agree the plan and the public interfaces (types, store API) before delegating.
