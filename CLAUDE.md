@@ -124,3 +124,17 @@ Rules:
 - If an agent finds work outside its scope (e.g. UI needs a new store action), it reports back instead of crossing layers; the main session re-delegates.
 - The main session owns the Git workflow: branching, commits, push, PRs. Agents never commit or push.
 - Non-trivial features: agree the plan and the public interfaces (types, store API) before delegating.
+
+## Skills
+
+Project skills live in `.claude/skills/` and are invoked as `/name`.
+
+| Skill | Use for |
+| --- | --- |
+| `/new-task <type> <description>` | Start a task: branch from `develop`, then plan before editing |
+| `/ship` | Lint + tests + build in Docker, then Conventional Commits; asks before push/PR |
+| `/new-feature <name>` | Feature across type -> service -> store -> UI -> tests, using the agents |
+| `/swap-service <service> <API>` | Replace a mock service with HTTP behind the same interface |
+| `/add-phones <spec>` | Add synthetic phones to `src/mocks/phones.json` |
+| `/docker-doctor` | Diagnose Docker / dev container problems |
+| `/release-check` | Pre-release checks for `develop` -> `main`; read-only, never merges |
