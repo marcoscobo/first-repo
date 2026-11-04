@@ -1,0 +1,21 @@
+{
+  "name": "Phone Shop",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+  "service": "web",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "remoteUser": "node",
+  "forwardPorts": [5173],
+  "postCreateCommand": "if [ -f package-lock.json ]; then npm ci; fi",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Vue.volar",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "vitest.explorer"
+      ]
+    }
+  }
+}
