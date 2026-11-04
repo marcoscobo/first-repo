@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
+import DealsSection from '@/components/DealsSection.vue'
 import PhoneCard from '@/components/PhoneCard.vue'
 import ShopIcon from '@/components/ShopIcon.vue'
+import { useDiscountsStore } from '@/stores/discounts'
 import { useProductsStore } from '@/stores/products'
 
 const store = useProductsStore()
 const { phones, loading, error } = storeToRefs(store)
+const discountsStore = useDiscountsStore()
+// A failed discounts load leaves the list empty, so the deals section stays hidden.
+const deals = computed(() => discountsStore.activeDeals())
 onMounted(() => {
   store.fetchPhones()
+  discountsStore.fetchDiscounts()
 })
 </script>
 
@@ -72,6 +78,7 @@ onMounted(() => {
         >
       </div>
     </section>
+    <DealsSection v-if="deals.length" :deals="deals" />
     <div
       id="difference"
       class="mb-14 grid scroll-mt-6 gap-5 border-b border-[#ddded4] px-2 pt-1 pb-8 sm:grid-cols-3 sm:gap-8"

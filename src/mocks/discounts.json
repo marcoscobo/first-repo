@@ -1,0 +1,30 @@
+[
+  {
+    "phoneId": "nova-x1-pro",
+    "percentOff": 20,
+    "campaign": "Black Friday",
+    "startsAt": "2026-11-23T00:00:00+01:00",
+    "endsAt": "2026-12-01T00:00:00+01:00"
+  },
+  {
+    "phoneId": "orbit-s-plus",
+    "percentOff": 15,
+    "campaign": "Black Friday",
+    "startsAt": "2026-11-23T00:00:00+01:00",
+    "endsAt": "2026-12-01T00:00:00+01:00"
+  },
+  {
+    "phoneId": "kestrel-7",
+    "percentOff": 25,
+    "campaign": "Black Friday",
+    "startsAt": "2026-11-23T00:00:00+01:00",
+    "endsAt": "2026-12-01T00:00:00+01:00"
+  },
+  {
+    "phoneId": "lumen-one",
+    "percentOff": 10,
+    "campaign": "Black Friday",
+    "startsAt": "2026-11-23T00:00:00+01:00",
+    "endsAt": "2026-12-01T00:00:00+01:00"
+  }
+]

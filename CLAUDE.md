@@ -6,7 +6,7 @@ Guidance for Claude when working in this repository.
 
 Online shop for mobile phones. Single-page app in Vue 3 + TypeScript: phone catalog with filters, product detail, cart and checkout. Frontend only for now: data comes from mock fixtures behind a service layer, so a real REST API can replace them later without changing views or stores.
 
-Current status: first version. Implemented: `/` (redirects to `/phones`) and `/phones` (CatalogView with PhoneCard/PriceTag, `products` store, `productService`, `src/mocks/phones.json`). Not built yet: HomeView, PhoneDetailView, CartView, CheckoutView, filters, cart and order logic.
+Current status: first version. Implemented: `/` (redirects to `/phones`) and `/phones` (CatalogView with PhoneCard/PriceTag, `products` store, `productService`, `src/mocks/phones.json`), plus a Black Friday deals section on `/phones` (DealsSection, `discounts` store, `discountService`, `src/mocks/discounts.json`; shown only while a campaign's `startsAt`..`endsAt` window is active). Not built yet: HomeView, PhoneDetailView, CartView, CheckoutView, filters, cart and order logic.
 
 ## Stack
 
