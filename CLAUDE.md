@@ -68,6 +68,15 @@ docker compose run --rm web npm run build      # type-check + production build
 docker build --target prod -t phone-shop .     # production image
 ```
 
+## Deploy (Vercel)
+
+- Hosted on Vercel as a static Vite build (`npm run build` -> `dist/`). Vercel builds from the GitHub repo; Docker and `nginx.conf` are not used there.
+- Production deploys from `main`; other branches and PRs get preview deployments.
+- `vercel.json` holds the SPA fallback (rewrite all paths to `/index.html`). Keep it in sync with `nginx.conf` when routing changes.
+- Node version on Vercel comes from `engines` in `package.json`, not from the Dockerfile.
+- Client-side config must use `VITE_*` env vars, set in the Vercel project settings. Never commit secrets: anything `VITE_*` ends up in the public bundle.
+- Never deploy, change Vercel project settings or push to trigger a deploy without explicit user approval.
+
 ## Git workflow (mandatory for every task)
 
 Branches:
