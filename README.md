@@ -53,6 +53,16 @@ docker compose run --rm web npm run build   # production build
 docker build --target prod -t phone-shop .  # production image (nginx)
 ```
 
+## Deploy (Vercel)
+
+Vercel builds the app itself; the Dockerfile is not used there.
+
+1. Import the GitHub repo in Vercel. Framework preset: **Vite** (build `npm run build`, output `dist`).
+2. Set **Production Branch** to `main`. Other branches and PRs get preview URLs.
+3. Push to GitHub to deploy.
+
+`vercel.json` rewrites every path to `index.html` so Vue Router routes like `/phones` survive a page reload. Vercel picks the Node version from `engines` in `package.json`, which may differ from the Node version in the Docker image.
+
 ## Contributing
 
 - `main` = released code, `develop` = integration branch. Don't commit to either directly.
